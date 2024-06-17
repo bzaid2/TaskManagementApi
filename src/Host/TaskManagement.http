@@ -1,0 +1,60 @@
+@TaskManagement_HostAddress = https://localhost:7140
+### CREATE USER
+POST {{TaskManagement_HostAddress}}/api/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "example@mail.com",
+  "password": "123456!"
+}
+
+### GET TOKEN
+POST {{TaskManagement_HostAddress}}/api/token
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+email=example@mail.com&password=123456!
+### GET USER
+GET {{TaskManagement_HostAddress}}/api/users/1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5NzgyMWEwZi0wMDNiLTRmNzQtYWJlYS0xNWZjOGVjZGQ0ZjQiLCJuYW1lIjoiZXhhbXBsZUBtYWlsLmNvbSIsImVtYWlsIjoiZXhhbXBsZUBtYWlsLmNvbSIsImV4cCI6MTcxODM4NTEyMH0.L2mA2gQDq0M3-_JHOgfTT7nolWkJ8rc_XIYYJhBxEds
+
+### CREATE TASK
+POST {{TaskManagement_HostAddress}}/api/tasks
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5NzgyMWEwZi0wMDNiLTRmNzQtYWJlYS0xNWZjOGVjZGQ0ZjQiLCJuYW1lIjoiZXhhbXBsZUBtYWlsLmNvbSIsImVtYWlsIjoiZXhhbXBsZUBtYWlsLmNvbSIsImV4cCI6MTcxODM4NTEyMH0.L2mA2gQDq0M3-_JHOgfTT7nolWkJ8rc_XIYYJhBxEds
+
+{
+  "title": "Tarea 1",
+  "description": "Descripcion tarea 1",
+  "expiryDate": "2025-06-14T17:06:29.268Z"
+}
+
+### LIST TASKS
+GET {{TaskManagement_HostAddress}}/api/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5NzgyMWEwZi0wMDNiLTRmNzQtYWJlYS0xNWZjOGVjZGQ0ZjQiLCJuYW1lIjoiZXhhbXBsZUBtYWlsLmNvbSIsImVtYWlsIjoiZXhhbXBsZUBtYWlsLmNvbSIsImV4cCI6MTcxODM4NTEyMH0.L2mA2gQDq0M3-_JHOgfTT7nolWkJ8rc_XIYYJhBxEds
+
+### GET SPECIFIC TASK
+GET {{TaskManagement_HostAddress}}/api/tasks/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5NzgyMWEwZi0wMDNiLTRmNzQtYWJlYS0xNWZjOGVjZGQ0ZjQiLCJuYW1lIjoiZXhhbXBsZUBtYWlsLmNvbSIsImVtYWlsIjoiZXhhbXBsZUBtYWlsLmNvbSIsImV4cCI6MTcxODM4NTEyMH0.L2mA2gQDq0M3-_JHOgfTT7nolWkJ8rc_XIYYJhBxEds
+
+### UPDATE TASK
+PUT {{TaskManagement_HostAddress}}/api/tasks/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5NzgyMWEwZi0wMDNiLTRmNzQtYWJlYS0xNWZjOGVjZGQ0ZjQiLCJuYW1lIjoiZXhhbXBsZUBtYWlsLmNvbSIsImVtYWlsIjoiZXhhbXBsZUBtYWlsLmNvbSIsImV4cCI6MTcxODM4NTEyMH0.L2mA2gQDq0M3-_JHOgfTT7nolWkJ8rc_XIYYJhBxEds
+
+{
+  "title": "Tarea actualizada",
+  "description": "Descripcion tarea actualizada",
+  "expiryDate": "2026-06-14T17:06:29.268Z"
+}
+
+### DELETE TASK
+DELETE {{TaskManagement_HostAddress}}/api/tasks/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5NzgyMWEwZi0wMDNiLTRmNzQtYWJlYS0xNWZjOGVjZGQ0ZjQiLCJuYW1lIjoiZXhhbXBsZUBtYWlsLmNvbSIsImVtYWlsIjoiZXhhbXBsZUBtYWlsLmNvbSIsImV4cCI6MTcxODM4NTEyMH0.L2mA2gQDq0M3-_JHOgfTT7nolWkJ8rc_XIYYJhBxEds
+
