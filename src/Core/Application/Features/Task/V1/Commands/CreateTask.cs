@@ -24,8 +24,6 @@ namespace TaskManagement.Application.Features.Task.V1.Commands
             RuleFor(r => r.Title).NotEmpty()
                                  .MaximumLength(50);
             RuleFor(r => r.Description).MaximumLength(100);
-            RuleFor(r => r.ExpiryDate).Must(x => x >= DateTime.Today)
-                                      .WithMessage("Invalid expiry date");
         }
     }
 
